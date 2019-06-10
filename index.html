@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Perso CSS -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Courgette" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <title>pokedex</title>
+  </head>
+  <body>
+  <form>
+
+      <h1 class="pokedex">
+        <p>POKEDEX</p>
+      </h1>
+
+
+      <input type="text" placeholder="Poké Recherche" />
+      <ul></ul>
+</form>
+<script>
+
+const pokedex = 'https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json';
+const pokemons = [];
+
+   fetch(pokedex)
+  .then(blob => blob.json())
+  .then(data => pokemons.push(...data.pokemon));
+  function trouverPokemon(recherche, pokemons) {
+  return pokemons.filter(pokemon => {
+  const regex = new RegExp(recherche, 'gi');
+  return pokemon.name.match(regex) || pokemon.type.find(type => type.match(regex));
+
+ });
+
+}
+
+function afficherResultat() {
+const tableauResultat = trouverPokemon(this.value,pokemons);
+const html = tableauResultat.map(pokemon => {
+return`
+<li>
+
+<img src= "${pokemon.img}"</span>
+<span>${pokemon.name}</span>
+<span>${pokemon.heing}</span>
+<span>${pokemon.name}</span>
+<span>${pokemon.weight}</span>
+
+</li>
+`;
+}).join('');
+resultat.innerHTML = html;
+
+}
+
+const input = document.querySelector('input');
+const resultat = document.querySelector('ul');
+
+input.addEventListener('change', afficherResultat);
+input.addEventListener('keyup', afficherResultat);
+
+
+
+</script>
+</body>
+</html>
