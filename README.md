@@ -1,11 +1,11 @@
 # Pokedex
 # langage utiliser :
-- HTML 
-- CSS
-- JSON 
+- html
+- css
+- json 
  
  # FONCTIONEMENT DE L'APPLICATION : 
- - ENTRÉ UN NON DE POKEMON AVEC SA PREMIERE LETTRE POUR UNE RECHERCHE DE SA FICHE          DESCRIPTIF 
+ - entré un non de pokemon avec sa premiere lettre pour une recherche de sa fiche descriptif 
 
  # TITULAIRE DE L'APPLICATION : 
  - DESTER ALEXANDRE 
